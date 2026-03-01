@@ -75,6 +75,8 @@ int main()
 
     stdio_init_all();
 
+    printf("Running\n");
+
     // main run loop
     while (1)
     {
@@ -84,7 +86,7 @@ int main()
         // printf("tick\n");
 
         // custom tasks
-        custom_cdc_task();
+        // custom_cdc_task();
     }
 
     int x = 0;
@@ -232,6 +234,19 @@ void tud_cdc_rx_cb(uint8_t itf)
     // | you won't be able to print anymore to CDC0
     // | next time this function is called
     uint32_t count = tud_cdc_n_read(itf, buf, sizeof(buf));
+
+
+if (itf == 0)
+    {
+        // process the received data
+        buf[count] = 0; // null-terminate the string
+        // now echo data back to the console on CDC 0
+        printf("Received on CDC 0: %s\n", buf);
+
+        // and echo back OK on CDC 1
+        // tud_cdc_n_write(itf, (uint8_t const *) buf, 4);
+        // tud_cdc_n_write_flush(itf);
+    }    
 
     // check if the data was received on the second cdc interface
     if (itf == 1)
