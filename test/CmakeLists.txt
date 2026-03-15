@@ -1,0 +1,59 @@
+cmake_minimum_required(VERSION 3.13)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(serial-protocol-test C CXX ASM)
+
+add_subdirectory("googletest")
+
+## Locate GTest
+# find_package(GTest REQUIRED)
+# include_directories(${GTEST_INCLUDE_DIRS})  # Var managed by CMake
+
+## Add GTest required libraries to linker
+# link_libraries(${GTEST_LIBRARIES} gtest_main pthread)
+
+message("------${GTEST_LIBRARIES}")
+
+
+## Set c++ 11 std
+set(CMAKE_CXX_STANDARD 11)
+
+## Include our source directories
+set(CMAKE_INCLUDE_CURRENT_DIR True)
+
+## Set gcov flags
+set(CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage")
+set(CMAKE_EXE_LINKER_FLAGS "-lgcov")
+
+
+include_directories(googletest/googletest/include)
+include_directories(googletest/googlemock/include)
+
+# add_executable(my_tests test.cpp)
+
+# target_link_libraries(my_tests
+#   gtest
+#   gtest_main
+#   gmock
+#   gmock_main
+
+## Define executables for each test suite
+set(SIMPLE "runSimpleTests")
+add_executable(${SIMPLE} test_serial_protocol.cpp
+  ../serial/serial_protocol.cpp)
+  target_include_directories(${SIMPLE} PRIVATE ../serial)
+# target_link_libraries(${SIMPLE}   gtest 
+#   gtest_main
+#   gmock
+#   gmock_main
+# )
+
+target_link_libraries(${SIMPLE} 
+    GTest::gtest
+    GTest::gtest_main
+    GTest::gmock
+    GTest::gmock_main
+)
