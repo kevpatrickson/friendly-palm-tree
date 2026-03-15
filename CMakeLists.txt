@@ -77,7 +77,7 @@ target_link_libraries(pico_endpoint message_lib
         )
 
 
-
+set_target_properties(pico_endpoint PROPERTIES PICO_TARGET_LINKER_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/memmap_RP2350.ld)
 
 pico_add_extra_outputs(pico_endpoint)
 

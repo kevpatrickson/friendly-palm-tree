@@ -91,44 +91,6 @@ int main()
 
     int x = 0;
 
-    // // UART stdio is active immediately
-    // printf("UART stdio active.\n");
-
-    // // Wait for USB CDC connection (optional)
-    // while (!tud_cdc_connected())
-    // {
-    //     sleep_ms(100);
-    // }
-
-    // printf("USB CDC connected.\n");
-
-    // while (true)
-    // {
-    //     // ---- USB CDC READ ----
-    //     if (tud_cdc_available())
-    //     {
-    //         uint8_t buf[64];
-    //         uint32_t count = tud_cdc_read(buf, sizeof(buf));
-
-    //         // Print received bytes to UART
-    //         printf("USB RX (%lu bytes): ", count);
-    //         for (uint32_t i = 0; i < count; i++)
-    //         {
-    //             printf("0x%02X ", buf[i]);
-    //         }
-    //         printf("\n");
-
-    //         // Echo back to USB
-    //         tud_cdc_write(buf, count);
-    //         tud_cdc_write_flush();
-    //     }
-
-    //     // ---- UART WRITE EXAMPLE ----
-    //     // (You can send periodic messages to UART)
-    //     // printf("Hello from UART!\n");
-
-    //     sleep_ms(10);
-    // }
 
     /* This is the buffer where we will store our message. */
     uint8_t buffer[128];
@@ -242,10 +204,16 @@ if (itf == 0)
         buf[count] = 0; // null-terminate the string
         // now echo data back to the console on CDC 0
         printf("Received on CDC 0: %s\n", buf);
+        for (int k=0;k<count;k++)
+        {
+            printf("%02X ", buf[k]);
+        }
+        printf("\n");
 
         // and echo back OK on CDC 1
         // tud_cdc_n_write(itf, (uint8_t const *) buf, 4);
-        // tud_cdc_n_write_flush(itf);
+        tud_cdc_n_write(itf, "OK", 3);
+        tud_cdc_n_write_flush(itf);
     }    
 
     // check if the data was received on the second cdc interface
