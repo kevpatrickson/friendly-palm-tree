@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+
+enum Type {
+  TypeA = 0;
+  TypeB = 1;
+}
+
+
+message Msg {
+	oneof payload {
+		Item item = 1;
+		Item1 item1 = 2;
+	}
+}
+
+
+
+message Item {
+    Type ID = 1;
+    bool enabled = 2;
+    float parm1 = 3;
+    float parm2 = 4;
+    float parm3 = 5;
+    float parm4 = 6;
+
+
+}
+
+
+message Item1 {
+    int32 parm1 = 3;
+    int32 parm2 = 4;
+    int32 parm3 = 5;
+    int32 parm4 = 6;
+
+
+}
