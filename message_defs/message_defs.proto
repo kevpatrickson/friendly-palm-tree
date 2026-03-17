@@ -8,9 +8,10 @@ enum Type {
 
 
 message Msg {
+    int32 msgID=1;
 	oneof payload {
-		Item item = 1;
-		Item1 item1 = 2;
+		Item item = 2;
+		Item1 item1 = 3;
 	}
 }
 

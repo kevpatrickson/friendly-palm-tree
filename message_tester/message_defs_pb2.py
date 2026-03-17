@@ -24,19 +24,19 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12message_defs.proto\"@\n\x03Msg\x12\x15\n\x04item\x18\x01 \x01(\x0b\x32\x05.ItemH\x00\x12\x17\n\x05item1\x18\x02 \x01(\x0b\x32\x06.Item1H\x00\x42\t\n\x07payload\"f\n\x04Item\x12\x11\n\x02ID\x18\x01 \x01(\x0e\x32\x05.Type\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\r\n\x05parm1\x18\x03 \x01(\x02\x12\r\n\x05parm2\x18\x04 \x01(\x02\x12\r\n\x05parm3\x18\x05 \x01(\x02\x12\r\n\x05parm4\x18\x06 \x01(\x02\"C\n\x05Item1\x12\r\n\x05parm1\x18\x03 \x01(\x05\x12\r\n\x05parm2\x18\x04 \x01(\x05\x12\r\n\x05parm3\x18\x05 \x01(\x05\x12\r\n\x05parm4\x18\x06 \x01(\x05*\x1c\n\x04Type\x12\t\n\x05TypeA\x10\x00\x12\t\n\x05TypeB\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12message_defs.proto\"O\n\x03Msg\x12\r\n\x05msgID\x18\x01 \x01(\x05\x12\x15\n\x04item\x18\x02 \x01(\x0b\x32\x05.ItemH\x00\x12\x17\n\x05item1\x18\x03 \x01(\x0b\x32\x06.Item1H\x00\x42\t\n\x07payload\"f\n\x04Item\x12\x11\n\x02ID\x18\x01 \x01(\x0e\x32\x05.Type\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\r\n\x05parm1\x18\x03 \x01(\x02\x12\r\n\x05parm2\x18\x04 \x01(\x02\x12\r\n\x05parm3\x18\x05 \x01(\x02\x12\r\n\x05parm4\x18\x06 \x01(\x02\"C\n\x05Item1\x12\r\n\x05parm1\x18\x03 \x01(\x05\x12\r\n\x05parm2\x18\x04 \x01(\x05\x12\r\n\x05parm3\x18\x05 \x01(\x05\x12\r\n\x05parm4\x18\x06 \x01(\x05*\x1c\n\x04Type\x12\t\n\x05TypeA\x10\x00\x12\t\n\x05TypeB\x10\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'message_defs_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_TYPE']._serialized_start=261
-  _globals['_TYPE']._serialized_end=289
+  _globals['_TYPE']._serialized_start=276
+  _globals['_TYPE']._serialized_end=304
   _globals['_MSG']._serialized_start=22
-  _globals['_MSG']._serialized_end=86
-  _globals['_ITEM']._serialized_start=88
-  _globals['_ITEM']._serialized_end=190
-  _globals['_ITEM1']._serialized_start=192
-  _globals['_ITEM1']._serialized_end=259
+  _globals['_MSG']._serialized_end=101
+  _globals['_ITEM']._serialized_start=103
+  _globals['_ITEM']._serialized_end=205
+  _globals['_ITEM1']._serialized_start=207
+  _globals['_ITEM1']._serialized_end=274
 # @@protoc_insertion_point(module_scope)

@@ -16,6 +16,7 @@ msg1.parm4=60
 
 bigMsg=Msg()
 
+bigMsg.msgID=0x1000
 bigMsg.item.CopyFrom(msg1)
 print(bigMsg.ListFields())
 
@@ -28,6 +29,10 @@ print(type(s))
 
 msg = Msg()
 msg.ParseFromString(s)
+
+active = msg.WhichOneof("payload")
+print("Active Oneoff:", active)
+print(active=='item')
 print("Decoded: ", msg)
 
 
